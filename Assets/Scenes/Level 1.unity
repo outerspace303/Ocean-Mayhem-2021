@@ -267,6 +267,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2664516102168187340, guid: 208b5f806fcbdbe419dcc957a7f15aae, type: 3}
+      propertyPath: xRange
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 2664516102168187340, guid: 208b5f806fcbdbe419dcc957a7f15aae, type: 3}
+      propertyPath: zRange
+      value: 50
+      objectReference: {fileID: 0}
     - target: {fileID: 2664516102325375862, guid: 208b5f806fcbdbe419dcc957a7f15aae, type: 3}
       propertyPath: m_Name
       value: Player Rig
@@ -315,85 +323,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3691780605136092694, guid: 208b5f806fcbdbe419dcc957a7f15aae, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: b216bc6d4cff4514a96d2e977c93903c, type: 2}
-    - target: {fileID: 3691780605681510540, guid: 208b5f806fcbdbe419dcc957a7f15aae, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: b216bc6d4cff4514a96d2e977c93903c, type: 2}
-    - target: {fileID: 3691780607142083965, guid: 208b5f806fcbdbe419dcc957a7f15aae, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: b216bc6d4cff4514a96d2e977c93903c, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 208b5f806fcbdbe419dcc957a7f15aae, type: 3}
---- !u!1 &2664516102168187339 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4394191706556971643, guid: 208b5f806fcbdbe419dcc957a7f15aae, type: 3}
-  m_PrefabInstance: {fileID: 2664516102168187338}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &2664516102168187340
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2664516102168187339}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 683f572d93016c147bbb8462526bd92d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movement:
-    m_Name: Movement
-    m_Type: 0
-    m_ExpectedControlType: 
-    m_Id: 9961136f-3c88-4379-b468-6c02b521574e
-    m_Processors: 
-    m_Interactions: 
-    m_SingletonActionBindings:
-    - m_Name: 2D Vector
-      m_Id: 7e7986bf-cd5e-44c7-aafd-a7ebfcb59f7a
-      m_Path: 2DVector
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Movement
-      m_Flags: 4
-    - m_Name: up
-      m_Id: 68a06900-a776-4305-b165-7f8e43d0b042
-      m_Path: <Keyboard>/w
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Movement
-      m_Flags: 8
-    - m_Name: down
-      m_Id: 2cba8480-c30a-4556-8f37-fdb82c2675c5
-      m_Path: <Keyboard>/s
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Movement
-      m_Flags: 8
-    - m_Name: left
-      m_Id: 808cc76c-0f0b-4b21-9f60-39791e144527
-      m_Path: <Keyboard>/a
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Movement
-      m_Flags: 8
-    - m_Name: right
-      m_Id: 4a324aad-b1ef-4d4a-ab52-dbcbb211bcb7
-      m_Path: <Keyboard>/d
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Movement
-      m_Flags: 8
 --- !u!1001 &3514208614154899951
 PrefabInstance:
   m_ObjectHideFlags: 0
