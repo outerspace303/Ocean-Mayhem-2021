@@ -267,14 +267,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2664516102168187340, guid: 208b5f806fcbdbe419dcc957a7f15aae, type: 3}
-      propertyPath: xRange
-      value: 40
-      objectReference: {fileID: 0}
-    - target: {fileID: 2664516102168187340, guid: 208b5f806fcbdbe419dcc957a7f15aae, type: 3}
-      propertyPath: zRange
-      value: 50
-      objectReference: {fileID: 0}
     - target: {fileID: 2664516102325375862, guid: 208b5f806fcbdbe419dcc957a7f15aae, type: 3}
       propertyPath: m_Name
       value: Player Rig
