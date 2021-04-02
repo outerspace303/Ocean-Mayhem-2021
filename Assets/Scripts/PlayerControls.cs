@@ -5,11 +5,19 @@ using UnityEngine;
 
 public class PlayerControls : MonoBehaviour
 {
+    [Header("Ship")]
     [SerializeField] private float controlSpeed = 10f;
     [SerializeField] private float xRange = 5f;
     [SerializeField] private float zRange = 5f;
     [SerializeField] private float controlRollFactor = 2f;
     [SerializeField] private float positionYawFactor = -5f;
+
+    [Header("Tower")] 
+    [SerializeField] private Transform tower;
+    [SerializeField] private float towerSpeed;
+    private float towerAngle;
+    
+    
 
     float xThrow, zThrow;
     
@@ -18,10 +26,21 @@ public class PlayerControls : MonoBehaviour
     void Update()
     {
         ProcessTranslation();
-        ProcessRotation();
+        ProcessShipRotation();
+        ProcessTowerRotation();
+
     }
 
-    void ProcessRotation()
+    void ProcessTowerRotation()
+    {
+       // tower.localPosition = new Vector3(transform.localPosition.x,
+      //      transform.localPosition.y , transform.localPosition.z);
+        towerAngle += Input.GetAxis("Mouse X") * towerSpeed * -Time.deltaTime;
+        towerAngle = Mathf.Clamp(towerAngle, -100, 140);
+        tower.localRotation = Quaternion.AngleAxis(towerAngle, -Vector3.up);
+    }
+
+    void ProcessShipRotation()
     {
         //X axis
         float roll = zThrow * controlRollFactor;
