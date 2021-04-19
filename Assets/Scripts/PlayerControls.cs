@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.IO.LowLevel.Unsafe;
 using UnityEngine;
 
 public class PlayerControls : MonoBehaviour
@@ -11,34 +12,97 @@ public class PlayerControls : MonoBehaviour
     [SerializeField] private float zRange = 5f;
     [SerializeField] private float controlRollFactor = 2f;
     [SerializeField] private float positionYawFactor = -5f;
-
-    [Header("Tower")] 
-    [SerializeField] private Transform tower;
-    [SerializeField] private float towerSpeed;
-    private float towerAngle;
-    
-    
-
     float xThrow, zThrow;
+
+    [Header("Tower")]
+    [SerializeField] private GameObject crosshair;
+    [SerializeField] private Transform tower;
+    [SerializeField]  private float towerAngle;
+    [SerializeField] private float towerSpeed;
+    [SerializeField] private float clampTowerMin;
+    [SerializeField] private float clampTowerMax;
+
+    [Header("Cannon")]
+    [SerializeField] private float cannonSpeed;
+    [SerializeField] private Transform cannon;
+    [SerializeField] private GameObject cannonRound;
+    [SerializeField] private float cannonAngle;
+    [SerializeField] private float clampCannonMin;
+    [SerializeField] private float clampCannonMax;
     
+    private Vector3 mousePos;
+    private Vector3 targetPos;
+    private Camera cam;
+
+    private void Awake()
+    {
+        cam = Camera.main;
+    }
+
     // Because of Blender: Z - right, left; Y - up, down; X - forward
     // Rotation is affected as well.
-    void Update()
+    // Nvm learned how to fix that
+    
+   private void Update()
     {
         ProcessTranslation();
         ProcessShipRotation();
-        ProcessTowerRotation();
-
+        ProcessFiring();
+        HandleCrosshair();
+        
+        mousePos = Input.mousePosition;
+        var mouseCast = cam.ScreenPointToRay(mousePos);
+        RaycastHit hit;
+        if (Physics.Raycast(mouseCast, out hit, Mathf.Infinity))
+        {
+            targetPos = new Vector3(hit.point.x, hit.point.y, hit.point.z);
+            Debug.DrawLine(mousePos, targetPos, Color.blue);
+            cannon.LookAt(targetPos);
+        }
+        else
+        {
+            var target= cam.ScreenPointToRay(Input.mousePosition).GetPoint(1000);
+            cannon.LookAt(target);
+        }
     }
+   
+   private void Start()
+     {
+         Cursor.visible = false;
+     }
 
-    void ProcessTowerRotation()
+   private void HandleCrosshair()
     {
-       // tower.localPosition = new Vector3(transform.localPosition.x,
-      //      transform.localPosition.y , transform.localPosition.z);
-        towerAngle += Input.GetAxis("Mouse X") * towerSpeed * -Time.deltaTime;
-        towerAngle = Mathf.Clamp(towerAngle, -100, 140);
-        tower.localRotation = Quaternion.AngleAxis(towerAngle, -Vector3.up);
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Cursor.visible = true;
+        }
+        crosshair.transform.position = mousePos;
     }
+
+    void ProcessFiring()
+    {
+        if (Input.GetButton("Fire1"))
+        {
+            Fire();
+        }
+        else
+        {
+            StopFiring();
+        }
+    }
+
+    void StopFiring()
+    {
+       cannonRound.SetActive(false);
+    }
+
+    void Fire()
+    {
+        cannonRound.SetActive(true);
+    }
+
+    
 
     void ProcessShipRotation()
     {
