@@ -899,3 +899,36 @@ System memory in use after: 66.1 MB.
 Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 1798.
 Total: 1.906200 ms (FindLiveObjects: 0.187400 ms CreateObjectMapping: 0.031000 ms MarkObjects: 1.612100 ms  DeleteObjects: 0.074200 ms)
 
+========================================================================
+Received Import Request.
+  Time since last request: 5697.118106 seconds.
+  path: Assets/Prefabs/Player Rig.prefab
+  artifactKey: Guid(208b5f806fcbdbe419dcc957a7f15aae) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Player Rig.prefab using Guid(208b5f806fcbdbe419dcc957a7f15aae) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '12700c5e3cf5d6bf1b27bd900fa7eafa') in 0.092484 seconds
+  Import took 0.095273 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000238 seconds.
+  path: Assets/Prefabs/Player Ship.prefab
+  artifactKey: Guid(c02c9cfc239bea342b3f45ea1323fefb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Player Ship.prefab using Guid(c02c9cfc239bea342b3f45ea1323fefb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2cbcf40d75a0bc853bc66d50caa58ad5') in 0.019295 seconds
+  Import took 0.021816 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.150841 seconds.
+  path: Assets/Prefabs/Canvas.prefab
+  artifactKey: Guid(50ca871cd343a8e45b2386af997cde8c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Canvas.prefab using Guid(50ca871cd343a8e45b2386af997cde8c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '067a79cb36ba30a1fc4b2d38e648c937') in 0.019020 seconds
+  Import took 0.021445 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.013842 seconds.
+  path: Assets/Prefabs/Canvas.prefab
+  artifactKey: Guid(50ca871cd343a8e45b2386af997cde8c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Canvas.prefab using Guid(50ca871cd343a8e45b2386af997cde8c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '067a79cb36ba30a1fc4b2d38e648c937') in 0.004751 seconds
+  Import took 0.007082 seconds .
+
+AssetImportWorkerClient::OnTransportError - code=2 error=End of file
