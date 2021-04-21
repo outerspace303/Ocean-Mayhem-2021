@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro.EditorUtilities;
 using Unity.IO.LowLevel.Unsafe;
 using UnityEngine;
 
@@ -14,22 +15,12 @@ public class PlayerControls : MonoBehaviour
     [SerializeField] private float positionYawFactor = -5f;
     float xThrow, zThrow;
 
-    [Header("Tower")]
-    [SerializeField] private GameObject crosshair;
-    [SerializeField] private Transform tower;
-    [SerializeField]  private float towerAngle;
-    [SerializeField] private float towerSpeed;
-    [SerializeField] private float clampTowerMin;
-    [SerializeField] private float clampTowerMax;
-
     [Header("Cannon")]
-    [SerializeField] private float cannonSpeed;
+    [SerializeField] private GameObject crosshair;
     [SerializeField] private Transform cannon;
     [SerializeField] private GameObject cannonRound;
-    [SerializeField] private float cannonAngle;
-    [SerializeField] private float clampCannonMin;
-    [SerializeField] private float clampCannonMax;
-    
+    private ParticleSystem cannonParticleSystem;
+
     private Vector3 mousePos;
     private Vector3 targetPos;
     private Camera cam;
@@ -38,38 +29,41 @@ public class PlayerControls : MonoBehaviour
     {
         cam = Camera.main;
     }
-
-    // Because of Blender: Z - right, left; Y - up, down; X - forward
-    // Rotation is affected as well.
-    // Nvm learned how to fix that
     
-   private void Update()
+    private void Update()
     {
         ProcessTranslation();
         ProcessShipRotation();
         ProcessFiring();
         HandleCrosshair();
+        ProcessCannonRotation();
+    }
+
+    private void ProcessCannonRotation()
+    {
+        Mathf.Clamp(cannon.eulerAngles.x, 0f, 10f);
         
         mousePos = Input.mousePosition;
         var mouseCast = cam.ScreenPointToRay(mousePos);
-        RaycastHit hit;
-        if (Physics.Raycast(mouseCast, out hit, Mathf.Infinity))
+
+        if (Physics.Raycast(mouseCast, out var hit, Mathf.Infinity))
         {
             targetPos = new Vector3(hit.point.x, hit.point.y, hit.point.z);
-            Debug.DrawLine(mousePos, targetPos, Color.blue);
+            //Debug.DrawLine(mousePos, targetPos, Color.blue)
             cannon.LookAt(targetPos);
         }
         else
         {
-            var target= cam.ScreenPointToRay(Input.mousePosition).GetPoint(1000);
+            var target = cam.ScreenPointToRay(Input.mousePosition).GetPoint(1000);
             cannon.LookAt(target);
         }
     }
-   
-   private void Start()
-     {
-         Cursor.visible = false;
-     }
+
+    private void Start()
+   {
+       cannonParticleSystem = cannonRound.GetComponent<ParticleSystem>();
+       Cursor.visible = false;
+   }
 
    private void HandleCrosshair()
     {
@@ -82,28 +76,15 @@ public class PlayerControls : MonoBehaviour
 
     void ProcessFiring()
     {
-        if (Input.GetButton("Fire1"))
-        {
-            Fire();
-        }
-        else
-        {
-            StopFiring();
-        }
+        ActivateCannon(Input.GetButton("Fire1"));
     }
 
-    void StopFiring()
+    void ActivateCannon(bool isActive)
     {
-       cannonRound.SetActive(false);
+        var emissionModule = cannonParticleSystem.emission;
+        emissionModule.enabled = isActive;
     }
-
-    void Fire()
-    {
-        cannonRound.SetActive(true);
-    }
-
     
-
     void ProcessShipRotation()
     {
         //X axis
