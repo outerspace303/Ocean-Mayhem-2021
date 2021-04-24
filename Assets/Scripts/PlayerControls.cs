@@ -41,19 +41,21 @@ public class PlayerControls : MonoBehaviour
 
     private void ProcessCannonRotation()
     {
-        Mathf.Clamp(cannon.eulerAngles.x, 0f, 10f);
-        
         mousePos = Input.mousePosition;
+       //mousePos.y = Mathf.Clamp(mousePos.y, 0, 150);
         var mouseCast = cam.ScreenPointToRay(mousePos);
 
         if (Physics.Raycast(mouseCast, out var hit, Mathf.Infinity))
         {
+          // Debug.Log("Physic target spotted");
             targetPos = new Vector3(hit.point.x, hit.point.y, hit.point.z);
-            //Debug.DrawLine(mousePos, targetPos, Color.blue)
+            Debug.DrawLine(mousePos, targetPos, Color.blue);
+            
             cannon.LookAt(targetPos);
         }
         else
         {
+          // Debug.Log("Skybox spotted");
             var target = cam.ScreenPointToRay(Input.mousePosition).GetPoint(1000);
             cannon.LookAt(target);
         }
@@ -66,7 +68,10 @@ public class PlayerControls : MonoBehaviour
    }
 
    private void HandleCrosshair()
-    {
+   {
+       var transformPosition = crosshair.transform.position;
+       transformPosition.y = Mathf.Clamp(transformPosition.y, 0, 150);
+        
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             Cursor.visible = true;
