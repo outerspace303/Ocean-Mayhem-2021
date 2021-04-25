@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using TMPro.EditorUtilities;
 using Unity.IO.LowLevel.Unsafe;
 using UnityEngine;
@@ -42,7 +43,13 @@ public class PlayerControls : MonoBehaviour
     private void ProcessCannonRotation()
     {
         mousePos = Input.mousePosition;
-       //mousePos.y = Mathf.Clamp(mousePos.y, 0, 150);
+        
+        var target = cam.ScreenPointToRay(Input.mousePosition).GetPoint(500);
+        target.y = Mathf.Clamp(target.y, 0f, 150f);
+        cannon.LookAt(target);
+        
+        
+       /*//mousePos.y = Mathf.Clamp(mousePos.y, 0, 150);
         var mouseCast = cam.ScreenPointToRay(mousePos);
 
         if (Physics.Raycast(mouseCast, out var hit, Mathf.Infinity))
@@ -54,11 +61,12 @@ public class PlayerControls : MonoBehaviour
             cannon.LookAt(targetPos);
         }
         else
-        {
+        {*/
           // Debug.Log("Skybox spotted");
-            var target = cam.ScreenPointToRay(Input.mousePosition).GetPoint(1000);
-            cannon.LookAt(target);
-        }
+           
+
+
+     //  }
     }
 
     private void Start()

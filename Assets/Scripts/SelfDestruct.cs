@@ -1,13 +1,16 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class SelfDestruct : MonoBehaviour
 {
-   private GameObject[] particleClones;
-   
-   public void destroyParticles()
-   {
-    //  Destroy(particleClones.
-   }
+
+    [SerializeField] private float timeUntilDestruction = 3f;
+    
+    private void Start()
+    {
+        Destroy(gameObject, timeUntilDestruction);
+    }
+    
 }
