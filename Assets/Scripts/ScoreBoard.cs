@@ -4,15 +4,10 @@ using UnityEngine;
 
 public class ScoreBoard : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public int score;
+    public void IncreaseScore(int amountToIncrease)
     {
-        
+        score += amountToIncrease;
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    
 }
