@@ -12,10 +12,10 @@ public class CollisionHandler : MonoBehaviour
     [SerializeField] private GameObject explosionVFX;
     [SerializeField] private GameObject playerShip;
     [SerializeField] private MeshRenderer[] meshRenderers;
+    
 
     private void OnCollisionEnter(Collision other)
     {
-        Debug.Log("collision detected");
         StartCoroutine(HandleDeath());
     }
 

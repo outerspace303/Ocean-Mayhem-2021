@@ -18,6 +18,7 @@ public class PlayerControls : MonoBehaviour
 
     [Header("Cannon")]
     [SerializeField] private GameObject crosshair;
+    [SerializeField] private GameObject hitCrosshair;
     [SerializeField] private Transform cannon;
     [SerializeField] private GameObject cannonRound;
     private ParticleSystem cannonParticleSystem;
@@ -85,7 +86,8 @@ public class PlayerControls : MonoBehaviour
             Cursor.visible = true;
         }
         crosshair.transform.position = mousePos;
-    }
+        hitCrosshair.transform.position = mousePos;
+   }
 
     void ProcessFiring()
     {
