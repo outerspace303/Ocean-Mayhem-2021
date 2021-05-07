@@ -369,6 +369,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5036916702127720977, guid: c02c9cfc239bea342b3f45ea1323fefb, type: 3}
+      propertyPath: CollisionModule.m_Bounce.scalar
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5036916702127720977, guid: c02c9cfc239bea342b3f45ea1323fefb, type: 3}
       propertyPath: InitialModule.startSpeed.scalar
       value: 3000
       objectReference: {fileID: 0}

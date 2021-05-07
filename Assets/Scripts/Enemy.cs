@@ -3,16 +3,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 public class Enemy : MonoBehaviour
 {
+    [Header("Effects")]
     [SerializeField] private GameObject deathVFX;
     [SerializeField] private GameObject hitVFX;
-    [SerializeField] private Transform parent;
+    
+    [Header("Stats")]
     [SerializeField] private int howMuchScorePerHit= 50;
     [SerializeField] private int health = 200;
-    [SerializeField] private int healthPerHit = 50;
+    [SerializeField] private int damagePerHit = 50;
+    
+    [SerializeField] private GameObject parentGameObject;
 
     public bool isHit = false;
     [SerializeField] private GameObject hitCrosshair;
@@ -22,12 +27,13 @@ public class Enemy : MonoBehaviour
     private void Start()
     {
         _scoreBoard = FindObjectOfType<ScoreBoard>();
+        parentGameObject = GameObject.FindWithTag("Spawn At Runtime");
     }
 
     private void OnParticleCollision(GameObject other)
     {
-        GameObject hitVfx = Instantiate(hitVFX, transform.position, Quaternion.identity);
-        hitVfx.transform.parent = parent;
+        var hitVfx = Instantiate(hitVFX, transform.position, Quaternion.identity);
+        hitVfx.transform.parent = parentGameObject.transform;
         HitEnemy();
     }
 
@@ -42,7 +48,7 @@ public class Enemy : MonoBehaviour
     {
         StartCoroutine(SetNewCrosshair());
         isHit = true;
-        health -= healthPerHit;
+        health -= damagePerHit;
         _scoreBoard.IncreaseScore(howMuchScorePerHit);
         if (health <= 0)
         {
@@ -53,8 +59,8 @@ public class Enemy : MonoBehaviour
 
     private void KillEnemy()
     {
-        GameObject deathVfx = Instantiate(deathVFX, transform.position, Quaternion.identity);
-        deathVfx.transform.parent = parent;
+        var deathVfx = Instantiate(deathVFX, transform.position, Quaternion.identity);
+        deathVfx.transform.parent = parentGameObject.transform;
         Destroy(gameObject);
     }
 }
