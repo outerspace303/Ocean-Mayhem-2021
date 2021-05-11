@@ -368,7 +368,7 @@ GameObject:
   - component: {fileID: 1139037160}
   m_Layer: 0
   m_Name: Destroyer (tier 3)
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -473,8 +473,6 @@ MonoBehaviour:
   health: 300
   damagePerHit: 50
   parentGameObject: {fileID: 0}
-  isHit: 0
-  hitCrosshair: {fileID: 0}
 --- !u!1 &1220600251093792
 GameObject:
   m_ObjectHideFlags: 0

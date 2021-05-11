@@ -143,7 +143,7 @@ GameObject:
   - component: {fileID: 1321832010}
   m_Layer: 0
   m_Name: Corvette (tier 1)
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -245,11 +245,9 @@ MonoBehaviour:
   deathVFX: {fileID: 837658353668667166, guid: ff9f559a595535841b22a13f84aefda9, type: 3}
   hitVFX: {fileID: 4423729317185388892, guid: ba0020a9deaf8814fabb7fa5f8c89f02, type: 3}
   howMuchScorePerHit: 50
-  health: 150
-  damagePerHit: 50
+  health: 200
+  damagePerHit: 200
   parentGameObject: {fileID: 0}
-  isHit: 0
-  hitCrosshair: {fileID: 0}
 --- !u!1 &1345887407032708
 GameObject:
   m_ObjectHideFlags: 0

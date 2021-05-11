@@ -45,7 +45,7 @@ public class PlayerControls : MonoBehaviour
     {
         mousePos = Input.mousePosition;
         
-        var target = cam.ScreenPointToRay(Input.mousePosition).GetPoint(500);
+        var target = cam.ScreenPointToRay(Input.mousePosition).GetPoint(10000);
         target.y = Mathf.Clamp(target.y, 0f, 150f);
         cannon.LookAt(target);
         

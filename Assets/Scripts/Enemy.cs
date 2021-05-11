@@ -18,9 +18,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] private int damagePerHit = 50;
     
     [SerializeField] private GameObject parentGameObject;
-
-    public bool isHit = false;
-    [SerializeField] private GameObject hitCrosshair;
+    
 
     private ScoreBoard _scoreBoard;
 
@@ -37,22 +35,14 @@ public class Enemy : MonoBehaviour
         HitEnemy();
     }
 
-    private IEnumerator SetNewCrosshair()
-    {
-        hitCrosshair.SetActive(true);
-        yield return new WaitForSeconds(0.2f);
-        hitCrosshair.SetActive(false);
-    }
+   
 
     private void HitEnemy()
     {
-        StartCoroutine(SetNewCrosshair());
-        isHit = true;
         health -= damagePerHit;
         _scoreBoard.IncreaseScore(howMuchScorePerHit);
         if (health <= 0)
         {
-            hitCrosshair.SetActive(false);
             KillEnemy();
         }
     }

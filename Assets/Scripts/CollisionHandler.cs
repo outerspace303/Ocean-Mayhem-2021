@@ -13,11 +13,14 @@ public class CollisionHandler : MonoBehaviour
     [SerializeField] private GameObject playerShip;
     [SerializeField] private MeshRenderer[] meshRenderers;
     
+    
 
     private void OnCollisionEnter(Collision other)
     {
         StartCoroutine(HandleDeath());
     }
+    
+    
 
     private IEnumerator HandleDeath()
     {

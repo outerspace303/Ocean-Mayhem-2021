@@ -92,7 +92,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2664516102325375863}
-  - component: {fileID: 2664516102325375860}
+  - component: {fileID: 1187215617}
   m_Layer: 0
   m_Name: Player Rig
   m_TagString: Untagged
@@ -116,7 +116,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!95 &2664516102325375860
+--- !u!95 &1187215617
 Animator:
   serializedVersion: 3
   m_ObjectHideFlags: 0
@@ -126,7 +126,7 @@ Animator:
   m_GameObject: {fileID: 2664516102325375862}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: afec1850f9adfeb42bce3583805e03f9, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -185,6 +185,19 @@ MonoBehaviour:
   - {fileID: 3691780605136092694}
   - {fileID: 3691780605681510540}
   - {fileID: 3691780607142083965}
+--- !u!114 &654599326
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7918942192733184081}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c72434fe6abba44a9eb95db2e0a62ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hitCrosshair: {fileID: 0}
 --- !u!1001 &2883151459266390594
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -369,12 +382,32 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5036916702127720977, guid: c02c9cfc239bea342b3f45ea1323fefb, type: 3}
+      propertyPath: CollisionModule.maxKillSpeed
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5036916702127720977, guid: c02c9cfc239bea342b3f45ea1323fefb, type: 3}
+      propertyPath: CollisionModule.minKillSpeed
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5036916702127720977, guid: c02c9cfc239bea342b3f45ea1323fefb, type: 3}
+      propertyPath: InitialModule.startSize.scalar
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5036916702127720977, guid: c02c9cfc239bea342b3f45ea1323fefb, type: 3}
       propertyPath: CollisionModule.m_Bounce.scalar
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5036916702127720977, guid: c02c9cfc239bea342b3f45ea1323fefb, type: 3}
+      propertyPath: InitialModule.startSizeY.scalar
+      value: 0.0001
+      objectReference: {fileID: 0}
+    - target: {fileID: 5036916702127720977, guid: c02c9cfc239bea342b3f45ea1323fefb, type: 3}
+      propertyPath: InitialModule.startSizeZ.scalar
+      value: 0.0001
+      objectReference: {fileID: 0}
+    - target: {fileID: 5036916702127720977, guid: c02c9cfc239bea342b3f45ea1323fefb, type: 3}
       propertyPath: InitialModule.startSpeed.scalar
-      value: 3000
+      value: 5000
       objectReference: {fileID: 0}
     - target: {fileID: 5036916702127720977, guid: c02c9cfc239bea342b3f45ea1323fefb, type: 3}
       propertyPath: CollisionModule.collisionMessages
@@ -383,6 +416,18 @@ PrefabInstance:
     - target: {fileID: 5036916702127720977, guid: c02c9cfc239bea342b3f45ea1323fefb, type: 3}
       propertyPath: TrailModule.widthOverTrail.scalar
       value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5036916702127720977, guid: c02c9cfc239bea342b3f45ea1323fefb, type: 3}
+      propertyPath: CollisionModule.m_Planes.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5036916702127720978, guid: c02c9cfc239bea342b3f45ea1323fefb, type: 3}
+      propertyPath: m_MaxParticleSize
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5036916702127720978, guid: c02c9cfc239bea342b3f45ea1323fefb, type: 3}
+      propertyPath: m_MinParticleSize
+      value: 0.005
       objectReference: {fileID: 0}
     - target: {fileID: 5285675149116410024, guid: c02c9cfc239bea342b3f45ea1323fefb, type: 3}
       propertyPath: m_RootOrder
