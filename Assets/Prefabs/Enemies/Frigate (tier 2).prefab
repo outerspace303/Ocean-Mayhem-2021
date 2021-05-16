@@ -395,7 +395,7 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300030, guid: 46cd524120389ad418423045618d2621, type: 3}
 --- !u!114 &119255317
@@ -412,8 +412,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   deathVFX: {fileID: 837658353668667166, guid: ff9f559a595535841b22a13f84aefda9, type: 3}
   hitVFX: {fileID: 4423729317185388892, guid: ba0020a9deaf8814fabb7fa5f8c89f02, type: 3}
-  howMuchScorePerHit: 50
-  health: 300
+  howMuchScorePerKill: 100
+  health: 200
   damagePerHit: 100
   parentGameObject: {fileID: 0}
 --- !u!1 &1302286245233652

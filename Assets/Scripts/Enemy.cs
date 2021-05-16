@@ -13,13 +13,12 @@ public class Enemy : MonoBehaviour
     [SerializeField] private GameObject hitVFX;
     
     [Header("Stats")]
-    [SerializeField] private int howMuchScorePerHit= 50;
+    [SerializeField] private int howMuchScorePerKill;
     [SerializeField] private int health = 200;
     [SerializeField] private int damagePerHit = 50;
     
     [SerializeField] private GameObject parentGameObject;
     
-
     private ScoreBoard _scoreBoard;
 
     private void Start()
@@ -34,13 +33,10 @@ public class Enemy : MonoBehaviour
         hitVfx.transform.parent = parentGameObject.transform;
         HitEnemy();
     }
-
-   
-
+    
     private void HitEnemy()
     {
         health -= damagePerHit;
-        _scoreBoard.IncreaseScore(howMuchScorePerHit);
         if (health <= 0)
         {
             KillEnemy();
@@ -49,6 +45,7 @@ public class Enemy : MonoBehaviour
 
     private void KillEnemy()
     {
+        _scoreBoard.IncreaseScore(howMuchScorePerKill);
         var deathVfx = Instantiate(deathVFX, transform.position, Quaternion.identity);
         deathVfx.transform.parent = parentGameObject.transform;
         Destroy(gameObject);

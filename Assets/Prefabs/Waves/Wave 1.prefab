@@ -100,7 +100,7 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300008, guid: 46cd524120389ad418423045618d2621, type: 3}
 --- !u!114 &214079193768169113
@@ -121,8 +121,6 @@ MonoBehaviour:
   health: 200
   damagePerHit: 200
   parentGameObject: {fileID: 0}
-  isHit: 0
-  hitCrosshair: {fileID: 0}
 --- !u!95 &214079193442702570
 Animator:
   serializedVersion: 3
@@ -242,7 +240,7 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300008, guid: 46cd524120389ad418423045618d2621, type: 3}
 --- !u!114 &214079193273000668
@@ -263,8 +261,6 @@ MonoBehaviour:
   health: 200
   damagePerHit: 200
   parentGameObject: {fileID: 0}
-  isHit: 0
-  hitCrosshair: {fileID: 0}
 --- !u!95 &214079193680197535
 Animator:
   serializedVersion: 3
@@ -384,7 +380,7 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300008, guid: 46cd524120389ad418423045618d2621, type: 3}
 --- !u!114 &214079191808962740
@@ -405,8 +401,6 @@ MonoBehaviour:
   health: 200
   damagePerHit: 200
   parentGameObject: {fileID: 0}
-  isHit: 0
-  hitCrosshair: {fileID: 0}
 --- !u!95 &214079192065726075
 Animator:
   serializedVersion: 3
@@ -1981,5 +1975,7 @@ PlayableDirector:
     value: {fileID: 214079193680197535}
   - key: {fileID: 6095625669427189714, guid: 1328938e69df3304a9f9b7ac78696b76, type: 2}
     value: {fileID: 214079193442702570}
+  - key: {fileID: -4515936796640177394, guid: 1328938e69df3304a9f9b7ac78696b76, type: 2}
+    value: {fileID: 0}
   m_ExposedReferences:
     m_References: []
