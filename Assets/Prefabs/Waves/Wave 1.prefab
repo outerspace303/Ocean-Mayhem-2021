@@ -117,7 +117,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   deathVFX: {fileID: 837658353668667166, guid: ff9f559a595535841b22a13f84aefda9, type: 3}
   hitVFX: {fileID: 4423729317185388892, guid: ba0020a9deaf8814fabb7fa5f8c89f02, type: 3}
-  howMuchScorePerHit: 50
+  howMuchScorePerKill: 0
   health: 200
   damagePerHit: 200
   parentGameObject: {fileID: 0}
@@ -257,7 +257,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   deathVFX: {fileID: 837658353668667166, guid: ff9f559a595535841b22a13f84aefda9, type: 3}
   hitVFX: {fileID: 4423729317185388892, guid: ba0020a9deaf8814fabb7fa5f8c89f02, type: 3}
-  howMuchScorePerHit: 50
+  howMuchScorePerKill: 0
   health: 200
   damagePerHit: 200
   parentGameObject: {fileID: 0}
@@ -397,7 +397,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   deathVFX: {fileID: 837658353668667166, guid: ff9f559a595535841b22a13f84aefda9, type: 3}
   hitVFX: {fileID: 4423729317185388892, guid: ba0020a9deaf8814fabb7fa5f8c89f02, type: 3}
-  howMuchScorePerHit: 50
+  howMuchScorePerKill: 0
   health: 200
   damagePerHit: 200
   parentGameObject: {fileID: 0}
@@ -1976,6 +1976,10 @@ PlayableDirector:
   - key: {fileID: 6095625669427189714, guid: 1328938e69df3304a9f9b7ac78696b76, type: 2}
     value: {fileID: 214079193442702570}
   - key: {fileID: -4515936796640177394, guid: 1328938e69df3304a9f9b7ac78696b76, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: -4165354473140731321, guid: 1328938e69df3304a9f9b7ac78696b76, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: -3049525784821739836, guid: 1328938e69df3304a9f9b7ac78696b76, type: 2}
     value: {fileID: 0}
   m_ExposedReferences:
     m_References: []

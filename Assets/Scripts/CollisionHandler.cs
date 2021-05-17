@@ -9,29 +9,42 @@ public class CollisionHandler : MonoBehaviour
 {
     [SerializeField] private PlayerControls _playerControls;
     [SerializeField] private float reloadDelay = 1f;
-    [SerializeField] private GameObject explosionVFX;
+    [SerializeField] private ParticleSystem explosionVFX;
     [SerializeField] private GameObject playerShip;
     [SerializeField] private MeshRenderer[] meshRenderers;
-    
-    
+
+    private MeshCollider meshCollider;
+
+    private void Start()
+    {
+        meshCollider = GetComponent<MeshCollider>();
+    }
+
 
     private void OnCollisionEnter(Collision other)
     {
-        StartCoroutine(HandleDeath());
+       HandleDeath();
+    }
+
+    private void ReloadLevel()
+    {
+        SceneManager.LoadScene("Level 1");
     }
     
     
 
-    private IEnumerator HandleDeath()
+    private void HandleDeath()
     {
-       _playerControls.enabled = false;
-       foreach (var meshRenderer in meshRenderers)
-       {
-           meshRenderer.enabled = false;
-       }
-       Instantiate(explosionVFX, playerShip.transform.position, Quaternion.identity);
-       yield return new WaitForSeconds(reloadDelay);
-        SceneManager.LoadScene("Level 1");
+        explosionVFX.Play();
+        _playerControls.enabled = false;
+        meshCollider.enabled = false;
+        foreach (var meshRenderer in meshRenderers)
+        {
+            meshRenderer.enabled = false;
+        }
+
+        Invoke(nameof(ReloadLevel), reloadDelay);
+
     }
     
 }
