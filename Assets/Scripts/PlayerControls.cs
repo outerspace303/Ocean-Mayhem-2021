@@ -26,12 +26,20 @@ public class PlayerControls : MonoBehaviour
     private Vector3 mousePos;
     private Vector3 targetPos;
     private Camera cam;
+    private AudioSource audioSource;
 
     private void Awake()
     {
         cam = Camera.main;
     }
     
+    private void Start()
+    {
+        audioSource = GetComponent<AudioSource>();
+        cannonParticleSystem = cannonRound.GetComponent<ParticleSystem>();
+        Cursor.visible = false;
+    }
+
     private void Update()
     {
         ProcessTranslation();
@@ -39,6 +47,7 @@ public class PlayerControls : MonoBehaviour
         ProcessFiring();
         HandleCrosshair();
         ProcessCannonRotation();
+        ProcessCannonSFX();
     }
 
     private void ProcessCannonRotation()
@@ -69,13 +78,7 @@ public class PlayerControls : MonoBehaviour
 
      //  }
     }
-
-    private void Start()
-   {
-       cannonParticleSystem = cannonRound.GetComponent<ParticleSystem>();
-       Cursor.visible = false;
-   }
-
+    
    private void HandleCrosshair()
    {
        var transformPosition = crosshair.transform.position;
@@ -92,6 +95,14 @@ public class PlayerControls : MonoBehaviour
     void ProcessFiring()
     {
         ActivateCannon(Input.GetButton("Fire1"));
+    }
+
+    private void ProcessCannonSFX()
+    {
+        if (Input.GetButton("Fire1") && !audioSource.isPlaying)
+        {
+            audioSource.PlayOneShot(audioSource.clip); 
+        }
     }
 
     void ActivateCannon(bool isActive)
