@@ -116,6 +116,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   deathVFX: {fileID: 837658353668667166, guid: ff9f559a595535841b22a13f84aefda9, type: 3}
   hitVFX: {fileID: 4423729317185388892, guid: ba0020a9deaf8814fabb7fa5f8c89f02, type: 3}
+  deathSFX: {fileID: 1056857144006385554, guid: f6cbe06f94cf2c946b403027f428d671, type: 3}
   howMuchScorePerKill: 400
   health: 600
   damagePerHit: 100

@@ -11,16 +11,17 @@ public class Enemy : MonoBehaviour
     [Header("Effects")]
     [SerializeField] private GameObject deathVFX;
     [SerializeField] private GameObject hitVFX;
+    [SerializeField] private GameObject deathSFX;
     
     [Header("Stats")]
     [SerializeField] private int howMuchScorePerKill;
-    [SerializeField] private int health = 200;
+    [SerializeField] public int health = 200;
     [SerializeField] private int damagePerHit = 50;
     
     [SerializeField] private GameObject parentGameObject;
     
     private ScoreBoard _scoreBoard;
-
+    
     private void Start()
     {
         _scoreBoard = FindObjectOfType<ScoreBoard>();
@@ -46,8 +47,10 @@ public class Enemy : MonoBehaviour
     private void KillEnemy()
     {
         _scoreBoard.IncreaseScore(howMuchScorePerKill);
+        var deathSfx = Instantiate(deathSFX, transform.position, Quaternion.identity);
         var deathVfx = Instantiate(deathVFX, transform.position, Quaternion.identity);
         deathVfx.transform.parent = parentGameObject.transform;
+        deathSfx.transform.parent = parentGameObject.transform;
         Destroy(gameObject);
     }
 }
