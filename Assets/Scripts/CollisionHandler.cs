@@ -12,12 +12,16 @@ public class CollisionHandler : MonoBehaviour
     [SerializeField] private ParticleSystem explosionVFX;
     [SerializeField] private GameObject playerShip;
     [SerializeField] private MeshRenderer[] meshRenderers;
+    [SerializeField] AudioClip deathSFX;
+
+    private AudioSource audioSource;
 
     private MeshCollider meshCollider;
 
     private void Start()
     {
         meshCollider = GetComponent<MeshCollider>();
+        audioSource = GetComponent<AudioSource>();
     }
 
 
@@ -36,6 +40,7 @@ public class CollisionHandler : MonoBehaviour
     private void HandleDeath()
     {
         explosionVFX.Play();
+        audioSource.Play();
         _playerControls.enabled = false;
         meshCollider.enabled = false;
         foreach (var meshRenderer in meshRenderers)
